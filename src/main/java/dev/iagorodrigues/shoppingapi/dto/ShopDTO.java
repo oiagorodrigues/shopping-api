@@ -15,13 +15,13 @@ public class ShopDTO {
     private String userIdentifier;
 
     @NotNull
-    private float total;
+    private Float total;
 
     @NotNull
     private Instant date;
 
     @NotNull
-    private List<ShopItemDTO> shopItemsDTO;
+    private List<ShopItemDTO> items;
 
     public String getUserIdentifier() {
         return userIdentifier;
@@ -47,12 +47,12 @@ public class ShopDTO {
         this.date = date;
     }
 
-    public List<ShopItemDTO> getShopItemsDTO() {
-        return shopItemsDTO;
+    public List<ShopItemDTO> getItems() {
+        return items;
     }
 
-    public void setShopItemsDTO(List<ShopItemDTO> shopItemsDTO) {
-        this.shopItemsDTO = shopItemsDTO;
+    public void setItems(List<ShopItemDTO> items) {
+        this.items = items;
     }
 
     public static ShopDTO convert (Shop shop) {
@@ -60,8 +60,8 @@ public class ShopDTO {
         shopDTO.setUserIdentifier(shop.getUserIdentifier());
         shopDTO.setDate(shop.getDate());
         shopDTO.setTotal(shop.getTotal());
-        shopDTO.setShopItemsDTO(shop
-                .getShopItems()
+        shopDTO.setItems(shop
+                .getItems()
                 .stream()
                 .map(ShopItemDTO::convert)
                 .collect(Collectors.toList()));

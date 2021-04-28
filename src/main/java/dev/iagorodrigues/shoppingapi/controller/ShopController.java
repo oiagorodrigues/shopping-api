@@ -10,7 +10,7 @@ import dev.iagorodrigues.shoppingapi.service.ShopService;
 
 import javax.validation.Valid;
 
-@Controller
+@RestController
 @RequestMapping("/api/shopping")
 public class ShopController {
 

@@ -23,7 +23,7 @@ public class Shop {
 
     @ElementCollection(fetch = FetchType.EAGER)
     @CollectionTable(name = "shop_item", joinColumns = @JoinColumn(name = "shop_id"))
-    private List<ShopItem> shopItems;
+    private List<ShopItem> items;
 
     public long getId() {
         return id;
@@ -57,12 +57,12 @@ public class Shop {
         this.date = date;
     }
 
-    public List<ShopItem> getShopItems() {
-        return shopItems;
+    public List<ShopItem> getItems() {
+        return items;
     }
 
-    public void setShopItems(List<ShopItem> shopItems) {
-        this.shopItems = shopItems;
+    public void setItems(List<ShopItem> items) {
+        this.items = items;
     }
 
     public static Shop convert (ShopDTO shopDTO) {
@@ -70,8 +70,8 @@ public class Shop {
         shop.setUserIdentifier(shopDTO.getUserIdentifier());
         shop.setDate(shopDTO.getDate());
         shop.setTotal(shopDTO.getTotal());
-        shop.setShopItems(shopDTO
-            .getShopItemsDTO()
+        shop.setItems(shopDTO
+            .getItems()
             .stream()
             .map(ShopItem::convert)
             .collect(Collectors.toList()));
